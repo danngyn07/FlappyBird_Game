@@ -70,3 +70,5 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+FlappyBird/Temp/Burst/burst-aot1fuh42pc.tsk/lib_burst_generated_part_164a9957f2c75e5d4b481d1ceff90393.obj
+/FlappyBird/Temp

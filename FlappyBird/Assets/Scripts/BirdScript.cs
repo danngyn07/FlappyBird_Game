@@ -19,11 +19,14 @@ public class BirdScript : MonoBehaviour
     {
         InvokeRepeating(nameof(AnimateSprite) , 0.15f , 0.15f);
     }
-
+    private void OnEnable()
+    {
+        transform.position = new Vector3(0, 0, 0);
+    }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             MyRigidbody.velocity = Vector2.up * 5;
         }

@@ -10,30 +10,54 @@ public class LogicScript : MonoBehaviour
     public GameObject playButton;
     public GameObject gameOver;
     // Start is called before the first frame update
-    private int scrore;
+    public bool checkGameOver = false;
+    private int score;
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
         Pause();
     }
-    private void PLay()
+
+    
+    public void PLay()
     {
+        score = 0;
+        scoreText.text = score.ToString();
+
+        playButton.SetActive(false);
+        gameOver.SetActive(false);
+        
+
+        Time.timeScale = 1f;
+        player.enabled = true;
+
+        PipeMoveScript[] pipes = FindObjectsOfType<PipeMoveScript>();
+        for(int i = 0; i < pipes.Length; i++)
+        {
+            Destroy(pipes[i].gameObject);
+        }
 
     }
     public void GameOver()
     {
-       
-
+        
+        gameOver.SetActive(true);
+        
+        
+        playButton.SetActive(true);
+        Pause();
     }
     public void Pause()
     {
-
+        Time.timeScale = 0f;
+        player.enabled = false;
+       
     }
     public void IncreaseScore()
     {
-        scrore++;
-        scoreText.text = scoreText.ToString();
+        score++;
+        scoreText.text = score.ToString();
     }
     
 }

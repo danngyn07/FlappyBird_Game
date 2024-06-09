@@ -14,6 +14,7 @@ public class PipeSpawnScript : MonoBehaviour
         SpawnPipe();
     }
 
+    
     // Update is called once per frame
     void Update()
     {
@@ -27,6 +28,7 @@ public class PipeSpawnScript : MonoBehaviour
             timer = 0;
         }
     }
+    
     void SpawnPipe()
     {
         float lowestPoint = transform.position.y - heightOffset;

@@ -7,10 +7,10 @@ public class LogicScript : MonoBehaviour
 {
     public BirdScript player;
     public Text scoreText;
+    public GameObject startButton;
     public GameObject playButton;
     public GameObject gameOver;
-    // Start is called before the first frame update
-    public bool checkGameOver = false;
+    // Start is called before the first frame 
     private int score;
 
     private void Awake()
@@ -19,7 +19,11 @@ public class LogicScript : MonoBehaviour
         Pause();
     }
 
-    
+    public void Start()
+    {
+        startButton.SetActive(true);
+        gameOver.SetActive(false);
+    }
     public void PLay()
     {
         score = 0;
@@ -27,7 +31,7 @@ public class LogicScript : MonoBehaviour
 
         playButton.SetActive(false);
         gameOver.SetActive(false);
-        
+        startButton.SetActive(false);
 
         Time.timeScale = 1f;
         player.enabled = true;
@@ -41,10 +45,8 @@ public class LogicScript : MonoBehaviour
     }
     public void GameOver()
     {
-        
+
         gameOver.SetActive(true);
-        
-        
         playButton.SetActive(true);
         Pause();
     }
